@@ -1,0 +1,23 @@
+.container {
+top: 150px; 
+}
+.productDisplay {
+   
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+   
+    position: relative;
+    overflow: hidden;
+    padding-bottom:80px;
+  }
+
+.searchInput{
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

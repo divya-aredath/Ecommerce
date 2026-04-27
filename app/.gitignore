@@ -1,0 +1,72 @@
+node_modules
+dist
+build
+*.log
+.DS_Store
+.env
+# Ignore IDE specific files
+.vscode/
+.idea/
+# Ignore OS specific files
+Thumbs.db
+Desktop.ini
+# Ignore coverage reports
+coverage/       
+# Ignore npm debug logs
+npm-debug.log*
+# Ignore lock files
+
+
+package-lock.json
+yarn.lock
+# Ignore test files
+__tests__/
+*.spec.js
+*.test.js
+# Ignore generated files
+*.min.js
+*.map
+# Ignore temporary files
+*.tmp
+*.bak
+
+# Ignore other files
+*.swp
+*.swo
+# Ignore specific directories
+logs/   
+temp/
+
+\# Ignore specific files
+secret.txt
+config.json
+/node_modules/
+/dist/  
+/build/
+*.log
+.DS_Store   
+.env
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+coverage/
+
+npm-debug.log*
+package-lock.json       
+yarn.lock
+__tests__/  
+*.spec.js
+*.test.js
+*.min.js
+*.map
+*.tmp
+*.bak
+*.swp
+*.swo
+logs/
+temp/
+secret.txt
+config.json
+
+

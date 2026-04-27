@@ -1,0 +1,16 @@
+.addbutton{
+    background-color: #0a0a0a;
+    color: #ededed;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width:150px;
+    border-radius: 5px;
+}
+.productDetails{
+   
+    background: linear-gradient(135deg, #4f37ad, #ac7bac);
+    border-radius: 5px;
+    border-color: #0a0a0a;
+    color:black
+}
