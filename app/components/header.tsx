@@ -8,9 +8,11 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import CartContext from "../context/CartContext";
 import { useContext } from "react";
+import { useAuth } from "../context/LoginContext";
 export default function Header() {
     const pathname = usePathname();
     const context = useContext(CartContext);
+    const { user ,logout,login} = useAuth();
     const [isClient, setIsClient] = useState(false);
 
             useEffect(() => {
@@ -41,14 +43,28 @@ const cartItemCount = isClient && context?.cart ? context.cart.reduce((total: nu
                                    </Link>
                                  <span className={styles.cartCount}>{cartItemCount}</span>
                              </div>
-                              {/* <li className={pathname === "/cart" ? styles.active : ""}>
-                                  <Link href="/cart">Cart {cartItem} </Link>
-                              </li> */}
+                              
                               <li className={pathname === "/aboutus" ? styles.active : ""}>
                                   <Link href="/aboutus">About Us</Link>
                             </li> 
-                     </ul>
-                 </nav>
+                            {user ? (
+                                <>
+                                    <div className="d-flex flex-column align-items-center">
+                                        <span className="me-3">Welcome, {user.email}</span>
+                                        <li className={pathname === "/" ? styles.active : ""}>
+                                            <Link href="/" onClick={logout}>
+                                                Logout
+                                            </Link>
+                                        </li>
+                                    </div>
+                                </>
+                            ) : (
+                                <li className={pathname === "/login" ? styles.active : ""}>
+                                    <Link href="/login">Login</Link>
+                                </li>
+                            )}
+                        </ul>
+                    </nav>
           </header>
       </div>
     );   
