@@ -1,4 +1,5 @@
-import { Carousel } from "./components/carousel/page"
+import Carousel from "./components/carousel"
+import Login from "./login/page"
 
 
 export default function Home() {

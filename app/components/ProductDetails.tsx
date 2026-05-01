@@ -24,6 +24,9 @@ export default function ProductDetails({ product }: any) {
                 <img src={product.image} alt="product Image" style={{ width: '200px', height: '200px' }} />
                 <h1>{product.title}</h1>
                 <p>{product.description}</p>
+                <p>Category: {product.category}</p>
+                {/* <p>Brand: {product.brand}</p> */}
+                <p>Rating: {product.rating.rate}reviews</p>
                 <p>Price: ${product.price}</p>
                 <button className="btn btn-primary addbutton  mb-5" 
                       onClick={() => onAddToCart()} >Add to Cart</button>  

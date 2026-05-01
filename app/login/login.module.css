@@ -8,32 +8,27 @@
     height: 100vh;
     
 }
-.loginImage {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
 
 .form{
     display: flex;
     flex-direction: column;
     gap: 30px;
-    background-color: #272317;
+    /* background-color: #272317; */
     height:400px;
     width: 400px;
     border-radius: 10px;
-    
+    background-image: url("../assets/sign.jpg");
+    background-size: cover;
+    opacity:0.9;
 }
 .form input {
-    margin-top: 20px;
+    margin-top: 40px;
     padding: 8px;
     font-size: 16px;
     width:70%;
     height: 40px;
     margin-left: 60px;
-    background-color: #4e413a;
+    background-color: #0d0d0c;
     border-radius: 5px;
     color: #fff;
 }
@@ -41,8 +36,8 @@
     width: 150px;
     height:40px;
     margin-left: 60px;
-    background-color: #afb2b6;
-    color: rgb(11, 10, 10);
+    background-color: #0e0e0f;
+    color: rgb(252, 249, 249);
     border: none;
     font-size: 16px;
     cursor: pointer;

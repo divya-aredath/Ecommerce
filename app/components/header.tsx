@@ -12,7 +12,7 @@ import { useAuth } from "../context/LoginContext";
 export default function Header() {
     const pathname = usePathname();
     const context = useContext(CartContext);
-    const { user ,logout,login} = useAuth();
+    const { user ,logout} = useAuth();
     const [isClient, setIsClient] = useState(false);
 
             useEffect(() => {
@@ -25,7 +25,7 @@ const cartItemCount = isClient && context?.cart ? context.cart.reduce((total: nu
         <div className="container d-flex">
             <header className={styles.header}>
                  <Image src={logo} alt="Store Logo" className={styles.logo} width={40} height={40} />
-                   <span className={styles.title}>E-commerce Store</span> 
+                   <h4 className={styles.title}>E-commerce Store</h4> 
                     <nav className={`navbar ${styles.menuitem}`}>
                         <ul className={`nav-links ${styles.menu}`}>
                              <li className={pathname === "/" ? styles.active : ""}>
@@ -39,7 +39,7 @@ const cartItemCount = isClient && context?.cart ? context.cart.reduce((total: nu
                               </li>
                               <div className={styles.cartWrapper}>
                                      <Link href="/cart" className={styles.cart}>
-                                          <FaShoppingCart size={20} /> Cart
+                                           Cart<FaShoppingCart size={20} />
                                    </Link>
                                  <span className={styles.cartCount}>{cartItemCount}</span>
                              </div>
@@ -50,7 +50,9 @@ const cartItemCount = isClient && context?.cart ? context.cart.reduce((total: nu
                             {user ? (
                                 <>
                                     <div className="d-flex flex-column align-items-center">
-                                        <span className="me-3">Welcome, {user.email}</span>
+                                        <h5 className="me-3" style={ { fontSize: '10px' }}>
+                                            Welcome, {user.email}
+                                        </h5>
                                         <li className={pathname === "/" ? styles.active : ""}>
                                             <Link href="/" onClick={logout}>
                                                 Logout

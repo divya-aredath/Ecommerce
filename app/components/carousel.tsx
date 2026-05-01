@@ -1,8 +1,8 @@
-import img2 from "@/app/assets/OIP.webp";
-import img1 from "@/app/assets/squarespace.png";
-import img3 from "@/app/assets/sd.jpg";
+import img2 from "../assets/OIP.webp";
+import img1 from "../assets/squarespace.png";
+import img3 from "../assets/sd.jpg";
 import Image from "next/image";
-export function Carousel() {
+export default function Carousel() {
     return (
         <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">    
             <div className="carousel-indicators">

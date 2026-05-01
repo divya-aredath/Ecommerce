@@ -6,6 +6,7 @@ import "./globals.css";
 import Header from "./components/header";
 import { CartProvider } from "./context/CartContext";
 import BootstrapClient from "./components/BootstrapClient";
+import AuthProvider from "./context/LoginContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,10 +34,13 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Header />
+       
         <CartProvider>
+          <AuthProvider>
           <BootstrapClient />
+           <Header />
           {children}
+          </AuthProvider>
         </CartProvider>
       </body>
     </html>

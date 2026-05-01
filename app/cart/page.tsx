@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import CartContext from "../context/CartContext";
 import "./cart.css";
 import { FaTrash } from "react-icons/fa";
+import { useAuth } from "../context/LoginContext";
 
 interface cartitem {
   id: string | number;
@@ -16,6 +17,7 @@ interface cartitem {
 export default function CartPage() {
   const router = useRouter();
   const context = useContext(CartContext);
+  const { user,login } = useAuth();
 
   if (!context) {
     return <div>Cart context not available</div>;
@@ -64,7 +66,14 @@ export default function CartPage() {
                      <p>Total price for {cart.reduce((sum, item) => sum + item.quantity, 0)} items: ${total}</p>
                     )}
                     {cart.length > 0 && (
-                    <button className="btn btn-primary mt-3" onClick={() => alert("Proceeding to checkout...")}>
+                    <button className="btn btn-primary mt-3" onClick={() => {
+                        if(user){
+                            alert("Proceeding to checkout...");
+                        }else{
+                            alert("Please login to proceed to checkout.");
+                            router.push("/login");
+                        }
+                    }}>
                         Checkout
                     </button>)}
                     <button className="btn btn-secondary mt-3 ms-2" onClick={() => router.push("/products")}>

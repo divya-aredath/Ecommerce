@@ -5,6 +5,7 @@ import img from "../assets/sign.jpg";
 import { AuthContext } from "../context/LoginContext";
 import { useRouter } from "next/navigation";
 import styles from "./login.module.css";
+import CartContext from "../context/CartContext";
 
 
 
@@ -12,23 +13,29 @@ import styles from "./login.module.css";
 export default function Login() {
 
   const auth = useContext(AuthContext);
+  const Context = useContext(CartContext);
   const router = useRouter();
 
   if (!auth) throw new Error("AuthContext missing");
 
   const { login } = auth;
+  const { cart } = Context || { cart: [] };
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 const [error, setError] = useState("");
 
-const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+const handleSubmit = (e:any) => {
   e.preventDefault();
 
     const success = login(email, password);
 
     if (success) {
-      router.push("/");
+      if(cart.length > 0) {
+        router.push("/cart");
+      } else {
+        router.push("/products");
+      }
     } else {
       setError("Invalid username or password");
     }
@@ -36,16 +43,11 @@ const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
 
   return (
     <div className={`container ${styles.login}`}>
-      <div className={styles.loginImage}></div>
-              <h5 className="mt-5">User Login</h5>
-              <Image
-                src={img}
-                alt="Login Image" width={100}height={50}></Image>
-      </div>
-
+     
+              <h5 className="font-weight-bold">User Login</h5>
       {error && <p style={{ color: "red" }}>{error}</p>}
 
-      <form onSubmit={handleSubmit} className={`${styles.form} mt-5`}> 
+      <form  className={`${styles.form} mt-10`}> 
         
 
         <input
@@ -63,10 +65,10 @@ const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type="submit" className={styles.button}>
+        <button type="button" className={styles.button} onClick={handleSubmit}>
           Login
         </button>
-         <button type="submit" className={styles.button}>
+         <button type="button" className={styles.button} onClick={() => router.push("/products")}>
           Continue as Guest
         </button>
       </form>
