@@ -13,7 +13,7 @@ static getProducts=async()=>{{
 static async getProductDetails({ id }: { id: string }) {
     const url = `https://fakestoreapi.com/products/${id}`;
     console.log("Fetching:", url);
-    const response = await fetch(url{
+    const response = await fetch(url,{
   cache: "no-store"
 });
     console.log(response);
