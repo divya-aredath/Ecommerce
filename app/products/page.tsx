@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import ProductList from "../components/ProductList";
 import style from "./products.module.css"
 import { ProductService } from "../services/productservice";

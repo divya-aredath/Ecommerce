@@ -1,4 +1,4 @@
- 
+ export const dynamic = "force-dynamic";
 import { ProductService } from "@/app/services/productservice";
 import "./id.module.css";
 import ProductDetails from "@/app/components/ProductDetails";
