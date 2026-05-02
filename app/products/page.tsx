@@ -14,7 +14,7 @@ export default async function products() {
           <p>Explore our wide range of products and find the perfect fit for you.</p>
           
           <div className={style.productDisplay}>
-            <ProductList prod={product} />
+            <ProductList prod={product|| []} />
                     
             </div>
         
