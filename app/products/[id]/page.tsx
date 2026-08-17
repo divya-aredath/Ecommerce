@@ -1,6 +1,5 @@
  export const dynamic = "force-dynamic";
 import { ProductService } from "@/app/services/productservice";
-//import styles from "./id.module.css";
 import ProductDetails from "@/app/components/ProductDetails";
 export default async function ProductPage({ params }: { params: { id: string } }) {
     try {

@@ -15,13 +15,20 @@ export default function ProductDetails({ product }: any) {
     const { addToCart } = context;
 
     function onAddToCart() {
-        addToCart(product);
+        const productToAdd = {
+            id: product.id,
+            title: product.title,   
+            price: product.price,
+            quantity: 1,
+            thumbnail: product.thumbnail,
+        };
+        addToCart(productToAdd);
         router.push("/cart");
     } 
  return (
             <div className="container mt-15 d-flex flex-column">
                 <div className="mb-3 d-flex align-items-center d-flex flex-column productDetails">
-                <img src={product.image} alt="product Image" style={{ width: '200px', height: '200px' }} />
+                <img src={product.thumbnail} alt="product Image" style={{ width: '200px', height: '200px' }} />
                 <h1>{product.title}</h1>
                 <p>{product.description}</p>
                 <p>Category: {product.category}</p>
